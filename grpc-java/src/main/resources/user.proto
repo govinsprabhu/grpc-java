@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option java_package = "org.example";
+
+service User{
+  rpc login(LoginRequest) returns (APIResponse);
+  rpc logout(Empty) returns (APIResponse);
+}
+
+message Empty {
+}
+
+message APIResponse {
+  string userName=1;
+  int32 responseCode=2;
+
+}
+
+message LoginRequest {
+  string userName = 1;
+  string password = 2;
+}
